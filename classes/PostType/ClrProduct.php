@@ -5,7 +5,9 @@ namespace Clr\PostType;
 class ClrProduct extends ClrPostType {
 	public static function setup(): void {
 		self::register_products();
+		self::register_categories();
 		self::register_product_meta();
+		self::register_proline();
 	}
 
 	public static function register_products(): void {
@@ -57,31 +59,52 @@ class ClrProduct extends ClrPostType {
 		register_post_type( 'product', $args );
 	}
 
+	public static function register_categories(): void {
+		register_taxonomy( 'product_cat', 'product',
+			array(
+				'labels'            => array(
+					'name'          => 'Product category',
+					'singular_name' => 'Product category',
+					'menu_name'     => 'Product Categories',
+				),
+				'hierarchical'      => true,
+				'show_admin_column' => true,
+				'show_in_nav_menus' => true,
+				'show_in_rest'      => true,
+				'rewrite'           => array( 'slug' => 'product-category' ),
+			)
+		);
+
+		wp_insert_term( 'Proline', 'product_cat' );
+	}
+
 	public static function register_product_meta(): void {
 		add_action( 'acf/init', [ __CLASS__, 'acf_add_product_meta' ], - 1 );
 	}
 
 	public static function acf_add_product_meta(): void {
-		acf_add_local_field_group( array(
-			'key'                   => 'group_clr_product_meta',
-			'title'                 => 'Product Settings',
-			'fields'                => self::product_meta_config(),
-			'menu_order'            => 0,
-			'position'              => 'normal',
-			'style'                 => 'default',
-			'label_placement'       => 'top',
-			'instruction_placement' => 'label',
-			'active'                => true,
-			'location'              => array(
-				array(
+		acf_add_local_field_group(
+			array(
+				'key'                   => 'group_clr_product_meta',
+				'title'                 => 'Product Settings',
+				'fields'                => self::product_meta_config(),
+				'menu_order'            => 0,
+				'position'              => 'normal',
+				'style'                 => 'default',
+				'label_placement'       => 'top',
+				'instruction_placement' => 'label',
+				'active'                => true,
+				'location'              => array(
 					array(
-						'param'    => 'post_type',
-						'operator' => '==',
-						'value'    => 'product',
+						array(
+							'param'    => 'post_type',
+							'operator' => '==',
+							'value'    => 'product',
+						),
 					),
 				),
-			),
-		) );
+			)
+		);
 	}
 
 	protected static function product_meta_config(): array {
@@ -302,7 +325,39 @@ class ClrProduct extends ClrPostType {
 				'type'    => 'checkbox',
 				'choices' => array(// Add application options here
 				),
-			],
+			]
+		];
+
+		return $fields;
+	}
+
+	private static function register_proline() {
+		acf_add_local_field_group(
+			array(
+				'key'                   => 'group_clr_proline_product_meta',
+				'title'                 => 'Proline Settings',
+				'fields'                => self::get_proline_config(),
+				'menu_order'            => 0,
+				'position'              => 'side',
+				'style'                 => 'default',
+				'label_placement'       => 'top',
+				'instruction_placement' => 'label',
+				'active'                => true,
+				'location'              => array(
+					array(
+						array(
+							'param'    => 'post_taxonomy',
+							'operator' => '==',
+							'value'    => 'product_cat:proline',
+						),
+					),
+				),
+			)
+		);
+	}
+
+	private static function get_proline_config() {
+		$fields = [
 			// Product Use Proline (True/False)
 			[
 				'key'     => 'product_use_proline',
