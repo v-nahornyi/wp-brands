@@ -2,11 +2,12 @@
 
 namespace Clr;
 
-use Clr\PostType\ClrIngredient;
 use Clr\PostType\ClrNews;
 use Clr\PostType\ClrOnlineRetailer;
+use Clr\PostType\ClrProDistributors;
 use Clr\PostType\ClrProduct;
 use Clr\Taxonomy\ClrAvailableSize;
+use Clr\Taxonomy\ClrIngredient;
 
 class ClrEntityManager {
 
@@ -19,6 +20,7 @@ class ClrEntityManager {
 		ClrIngredient::setup();
 		ClrAvailableSize::setup();
 		ClrOnlineRetailer::setup();
+		ClrProDistributors::setup();
 		ClrNews::setup();
 	}
 }

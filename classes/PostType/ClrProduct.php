@@ -240,34 +240,16 @@ class ClrProduct extends ClrPostType {
 				'type'  => 'file',
 			],
 			[
-				'key'   => 'upc_code2',
-				'label' => 'UPC Code 2',
-				'name'  => 'upc_code2',
-				'type'  => 'file',
-			],
-			[
-				'key'   => 'upc_code3',
-				'label' => 'UPC Code 3',
-				'name'  => 'upc_code3',
-				'type'  => 'file',
-			],
-			[
-				'key'   => 'upc_code4',
-				'label' => 'UPC Code 4',
-				'name'  => 'upc_code4',
-				'type'  => 'file',
-			],
-			[
-				'key'   => 'upc_code5',
-				'label' => 'UPC Code 5',
-				'name'  => 'upc_code5',
-				'type'  => 'file',
-			],
-			[
 				'key'   => 'upc_code_alt',
 				'label' => 'UPC Code Alt',
 				'name'  => 'upc_code_alt',
 				'type'  => 'text',
+			],
+			[
+				'key'   => 'upc_code2',
+				'label' => 'UPC Code 2',
+				'name'  => 'upc_code2',
+				'type'  => 'file',
 			],
 			[
 				'key'   => 'upc_code_alt2',
@@ -276,16 +258,34 @@ class ClrProduct extends ClrPostType {
 				'type'  => 'text',
 			],
 			[
+				'key'   => 'upc_code3',
+				'label' => 'UPC Code 3',
+				'name'  => 'upc_code3',
+				'type'  => 'file',
+			],
+			[
 				'key'   => 'upc_code_alt3',
 				'label' => 'UPC Code 3 Alt',
 				'name'  => 'upc_code_alt3',
 				'type'  => 'text',
 			],
 			[
+				'key'   => 'upc_code4',
+				'label' => 'UPC Code 4',
+				'name'  => 'upc_code4',
+				'type'  => 'file',
+			],
+			[
 				'key'   => 'upc_code_alt4',
 				'label' => 'UPC Code 4 Alt',
 				'name'  => 'upc_code_alt4',
 				'type'  => 'text',
+			],
+			[
+				'key'   => 'upc_code5',
+				'label' => 'UPC Code 5',
+				'name'  => 'upc_code5',
+				'type'  => 'file',
 			],
 			[
 				'key'   => 'upc_code_alt5',
