@@ -2,11 +2,11 @@
 
 namespace Clr;
 
-use Clr\PostType\ClrAvailableSize;
-use Clr\PostType\ClrOnlineRetailer;
-use Clr\PostType\ClrProduct;
 use Clr\PostType\ClrIngredient;
 use Clr\PostType\ClrNews;
+use Clr\PostType\ClrOnlineRetailer;
+use Clr\PostType\ClrProduct;
+use Clr\Taxonomy\ClrAvailableSize;
 
 class ClrEntityManager {
 

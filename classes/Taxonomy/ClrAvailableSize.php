@@ -1,6 +1,6 @@
 <?php
 
-namespace Clr\PostType;
+namespace Clr\Taxonomy;
 
 class ClrAvailableSize {
 	public static function setup(): void {
