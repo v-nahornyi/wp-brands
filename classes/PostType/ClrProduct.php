@@ -198,11 +198,11 @@ class ClrProduct extends ClrPostType {
 			],
 			// Available Sizes (Checkbox)
 			[
-				'key'     => 'available_sizes',
-				'label'   => 'Available Sizes',
-				'name'    => 'available_sizes',
-				'type'    => 'checkbox',
-				'choices' => [/* Add options here */ ],
+				'taxonomy'      => 'available_size',
+				'filters'       => array( 'taxonomy' ),
+				'min'           => 0,
+				'max'           => 100,
+				'return_format' => 'object',
 			],
 			// Custom Surfaces Content (WYSIWYG)
 			[
