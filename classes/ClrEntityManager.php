@@ -2,10 +2,12 @@
 
 namespace Clr;
 
+use Clr\PostType\ClrLocation;
 use Clr\PostType\ClrNews;
 use Clr\PostType\ClrOnlineRetailer;
-use Clr\PostType\ClrProDistributors;
+use Clr\PostType\ClrProDistributor;
 use Clr\PostType\ClrProduct;
+use Clr\PostType\ClrRetailer;
 use Clr\Taxonomy\ClrAvailableSize;
 use Clr\Taxonomy\ClrIngredient;
 
@@ -20,7 +22,9 @@ class ClrEntityManager {
 		ClrIngredient::setup();
 		ClrAvailableSize::setup();
 		ClrOnlineRetailer::setup();
-		ClrProDistributors::setup();
+		ClrProDistributor::setup();
+		ClrRetailer::setup();
+		ClrLocation::setup();
 		ClrNews::setup();
 	}
 }

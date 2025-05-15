@@ -2,32 +2,32 @@
 
 namespace Clr\PostType;
 
-class ClrProDistributors extends ClrPostType {
+class ClrProDistributor extends ClrPostType {
 	public static function setup(): void {
-		self::register_pro_distributors();
-		self::register_pro_distributors_meta();
+		self::register_pro_distributor();
+		self::register_pro_distributor_meta();
 	}
 
-	public static function register_pro_distributors(): void {
+	public static function register_pro_distributor(): void {
 		$labels = array(
 			'name'                  => __( 'Pro Distributors', 'clr-brands' ),
-			'singular_name'         => __( 'Pro Distributors', 'clr-brands' ),
+			'singular_name'         => __( 'Pro Distributor', 'clr-brands' ),
 			'menu_name'             => __( 'Pro Distributors', 'clr-brands' ),
 			'name_admin_bar'        => __( 'Pro Distributors', 'clr-brands' ),
 			'add_new'               => __( 'Add New', 'clr-brands' ),
-			'add_new_item'          => __( 'Add New Pro Distributors', 'clr-brands' ),
-			'new_item'              => __( 'New Pro Distributors', 'clr-brands' ),
-			'edit_item'             => __( 'Edit Pro Distributors', 'clr-brands' ),
+			'add_new_item'          => __( 'Add New Pro Distributor', 'clr-brands' ),
+			'new_item'              => __( 'New Pro Distributor', 'clr-brands' ),
+			'edit_item'             => __( 'Edit Pro Distributor', 'clr-brands' ),
 			'view_item'             => __( 'View Pro Distributors', 'clr-brands' ),
 			'all_items'             => __( 'All Pro Distributors', 'clr-brands' ),
 			'search_items'          => __( 'Search Pro Distributors', 'clr-brands' ),
 			'parent_item_colon'     => __( 'Parent Pro Distributors:', 'clr-brands' ),
 			'not_found'             => __( 'No Pro Distributors found.', 'clr-brands' ),
 			'not_found_in_trash'    => __( 'No Pro Distributors found in Trash.', 'clr-brands' ),
-			'featured_image'        => _x( 'Pro Distributors Image', 'clr-brands' ),
-			'set_featured_image'    => _x( 'Set Pro Distributors image', 'clr-brands' ),
-			'remove_featured_image' => _x( 'Remove Pro Distributors image', 'clr-brands' ),
-			'use_featured_image'    => _x( 'Use as Pro Distributors image', 'clr-brands' ),
+			'featured_image'        => _x( 'Pro Distributor Image', 'clr-brands' ),
+			'set_featured_image'    => _x( 'Set Pro Distributor image', 'clr-brands' ),
+			'remove_featured_image' => _x( 'Remove Pro Distributor image', 'clr-brands' ),
+			'use_featured_image'    => _x( 'Use as Pro Distributor image', 'clr-brands' ),
 		);
 
 		$args = array(
@@ -41,7 +41,7 @@ class ClrProDistributors extends ClrPostType {
 			'has_archive'        => true,
 			'hierarchical'       => false,
 			'menu_position'      => 20,
-			'menu_icon'          => 'dashicons-format-aside', // Dashicon
+			'menu_icon'          => 'dashicons-groups', // Dashicon
 			'show_in_rest'       => true, // Enable Gutenberg editor
 			'taxonomies'         => array( 'category', 'post_tag' ) // Assign categories and tags
 		);
@@ -49,11 +49,11 @@ class ClrProDistributors extends ClrPostType {
 		register_post_type( 'pro_distributors', $args );
 	}
 
-	public static function register_pro_distributors_meta(): void {
-		add_action( 'acf/init', [ __CLASS__, 'acf_add_pro_distributors_meta' ], - 1 );
+	public static function register_pro_distributor_meta(): void {
+		add_action( 'acf/init', [ __CLASS__, 'acf_add_pro_distributor_meta' ], - 1 );
 	}
 
-	public static function acf_add_pro_distributors_meta(): void {
+	public static function acf_add_pro_distributor_meta(): void {
 		acf_add_local_field_group( array(
 			'key'                   => 'group_clr_pro_distributors_meta',
 			'title'                 => 'Pro Distributors Settings',
