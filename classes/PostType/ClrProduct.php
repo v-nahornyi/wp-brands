@@ -163,7 +163,12 @@ class ClrProduct extends ClrPostType {
 				'label'   => 'Product Use',
 				'name'    => 'product_use',
 				'type'    => 'checkbox',
-				'choices' => [/* Add options here */ ],
+				'choices' => [
+					'multi_use'       => 'Multi Use',
+					'routine_clean'   => 'Routine Clean',
+					'prevent_protect' => 'Prevent & Protect',
+					'refresh_renew'   => 'Refresh & Renew'
+				],
 			],
 			// Rooms (Checkbox)
 			[
@@ -171,7 +176,14 @@ class ClrProduct extends ClrPostType {
 				'label'   => 'Rooms',
 				'name'    => 'rooms',
 				'type'    => 'checkbox',
-				'choices' => [/* Add options here */ ],
+				'choices' => [
+					'bathroom'  => 'Bathroom',
+					'kitchen'   => 'Kitchen',
+					'garage'    => 'Garage',
+					'outdoors'  => 'Outdoors',
+					'laundry'   => 'Laundry',
+					'specialty' => 'Specialty'
+				],
 			],
 			// Surfaces (Checkbox)
 			[
@@ -179,7 +191,65 @@ class ClrProduct extends ClrPostType {
 				'label'   => 'Surfaces',
 				'name'    => 'surfaces',
 				'type'    => 'checkbox',
-				'choices' => [/* Add options here */ ],
+				'choices' => [
+					'apparel'                 => 'Apparel',
+					'aluminium'               => 'Aluminium',
+					'asphalt'                 => 'Asphalt',
+					'baseboards'              => 'Baseboards',
+					'blends'                  => 'Blends',
+					'blacktop'                => 'Blacktop',
+					'brick'                   => 'Brick',
+					'canvas'                  => 'Canvas',
+					'cement'                  => 'Cement',
+					'ceramic'                 => 'Ceramic',
+					'clear_coat'              => 'Clear Coat',
+					'chrome'                  => 'Chrome',
+					'concrete'                => 'Concrete',
+					'copper'                  => 'Copper',
+					'corian'                  => 'Corian',
+					'cotton'                  => 'Cotton',
+					'diamonds'                => 'Diamonds',
+					'fabric'                  => 'Fabric',
+					'fiber_bond_carpet'       => 'Fiber bond carpet',
+					'fiberglass'              => 'Fiberglass',
+					'fully_cured_oil'         => 'Fully cured oil-based painted surfaces',
+					'glass'                   => 'Glass',
+					'glass_stove_tops'        => 'Glass Stove Tops',
+					'gold'                    => 'Gold',
+					'granite'                 => 'Granite',
+					'grout'                   => 'Grout',
+					'hard_plastics'           => 'Hard plastics',
+					'hardwood'                => 'Hardwood',
+					'laminate'                => 'Laminate',
+					'marble'                  => 'Marble',
+					'metal'                   => 'Metal',
+					'painted_walls'           => 'Painted walls',
+					'plastic_resin'           => 'Plastic/Resin',
+					'platinum'                => 'Platinum',
+					'polyester'               => 'Polyester',
+					'porcelain'               => 'Porcelain',
+					'pvc'                     => 'PVC',
+					'rattan'                  => 'Rattan',
+					'range_hood'              => 'Range Hood',
+					'rubber'                  => 'Rubber',
+					'silver_plate'            => 'Silver plate',
+					'sports_uniforms_jersets' => 'Sports Uniforms, Jersets',
+					'sports_equipment'        => 'Sports Equipment',
+					'stainless_steel'         => 'Stainless Steel',
+					'stainless_steel_ext'     => 'Stainless Steel Exteriors',
+					'stainless_steel_app_ext' => 'Stainless Steel Appliance Exteriors',
+					'sterling_silver'         => 'Sterling Silver',
+					'natural_stones'          => 'Natural Stones',
+					'stucco'                  => 'Stucco',
+					'terrazzo'                => 'Terrazzo',
+					'tile'                    => 'Tile',
+					'vinyl_siding'            => 'Vinyl Siding',
+					'vinyl'                   => 'Vinyl',
+					'caulk'                   => 'Caulk',
+					'wicker'                  => 'Wicker',
+					'wood'                    => 'Wood',
+					'wrought_iron'            => 'Wrought Iron'
+				]
 			],
 			// SDS Spanish (File Picker)
 			[
@@ -190,20 +260,28 @@ class ClrProduct extends ClrPostType {
 			],
 			// Online Available (Checkbox)
 			[
-				'key'     => 'online_available',
-				'label'   => 'Online Available',
-				'name'    => 'online_available',
-				'type'    => 'checkbox',
-				'choices' => [/* Add options here */ ],
+				'key'           => 'online_retailers',
+				'label'         => 'Online Available',
+				'name'          => 'online_retailers',
+				'type'          => 'post_object',
+				'post_type'     => array( 'online_retailer' ),  // Target CPT
+				'multiple'      => 1,        // Allow multiple selections
+				'ui'            => 1,        // Enable enhanced UI
+				'return_format' => 'object', // Return post objects (or 'id')
+				'allow_null'    => 0,
+				'ajax'          => 1,        // Helpful for large datasets
+				'placeholder'   => 'Select Retailers',
 			],
 			// Available Sizes (Checkbox)
-			[
-				'taxonomy'      => 'available_size',
-				'filters'       => array( 'taxonomy' ),
-				'min'           => 0,
-				'max'           => 100,
-				'return_format' => 'object',
-			],
+//			[
+//				'key'  => 'available_size',
+//				'name' => 'available_size',
+//				'taxonomy'      => 'available_size',
+//				'filters'       => array( 'taxonomy' ),
+//				'min'           => 0,
+//				'max'           => 100,
+//				'return_format' => 'object',
+//			],
 			// Custom Surfaces Content (WYSIWYG)
 			[
 				'key'   => 'custom_surfaces_content',
@@ -317,14 +395,6 @@ class ClrProduct extends ClrPostType {
 				'label' => 'Show Product Safer Choice Logo',
 				'name'  => 'show_product_safer_choice_logo',
 				'type'  => 'true_false',
-			],
-			[
-				'key'     => 'field_product_application',
-				'label'   => 'Product Application',
-				'name'    => 'product_application',
-				'type'    => 'checkbox',
-				'choices' => array(// Add application options here
-				),
 			]
 		];
 
@@ -364,16 +434,37 @@ class ClrProduct extends ClrPostType {
 				'label'   => 'Product Use Proline',
 				'name'    => 'product_use_proline',
 				'type'    => 'checkbox',
-				'choices' => [],
+				'choices' => [
+					'descalers_cleaners'        => 'Descalers & Cleaners',
+					'stain_spot_removers'       => 'Stain & Spot Removers',
+					'drain_maintainers_openers' => 'Drain Maintainers & Openers',
+					'metal_cleaners'            => 'Metal Cleaners',
+					'degreasers'                => 'Degreasers'
+				]
+			],
+			[
+				'key'     => 'field_product_application',
+				'label'   => 'Product Application',
+				'name'    => 'product_application',
+				'type'    => 'checkbox',
+				'choices' => [
+					'facilities_maintenance' => 'Facilities Maintenance',
+					'automotive'             => 'Automotive',
+					'agriculture'            => 'Agriculture',
+					'industrial'             => 'Industrial'
+				]
 			],
 			// Product Type (Checkbox)
 			[
-				'key'     => 'field_product_type',
+				'key'     => 'product_type',
 				'label'   => 'Product Type',
 				'name'    => 'product_type',
 				'type'    => 'checkbox',
-				'choices' => array(// Add type options here
-				),
+				'choices' => [
+					'routing_cleaning'         => 'Routing Cleaning',
+					'preventative_maintenance' => 'Preventative Maintenance',
+					'restorative'              => 'Restorative'
+				]
 			],
 			// Show Proline Safer Choice (True/False)
 			[
