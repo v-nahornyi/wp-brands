@@ -8,23 +8,25 @@ use Clr\PostType\ClrOnlineRetailer;
 use Clr\PostType\ClrProDistributor;
 use Clr\PostType\ClrProduct;
 use Clr\PostType\ClrRetailer;
-use Clr\Taxonomy\ClrAvailableSize;
-use Clr\Taxonomy\ClrIngredient;
+use Clr\ProlineDistributor\ClrProlineDistributor;
 
 class ClrEntityManager {
 
-	public static function init() {
+	public static function init(): void {
 		self::setup_post_types();
+		self::setup_users();
 	}
 
-	public static function setup_post_types() {
+	private static function setup_post_types(): void {
 		ClrProduct::setup();
-		ClrIngredient::setup();
-		ClrAvailableSize::setup();
 		ClrOnlineRetailer::setup();
 		ClrProDistributor::setup();
 		ClrRetailer::setup();
 		ClrLocation::setup();
 		ClrNews::setup();
+	}
+
+	private static function setup_users() {
+		ClrProlineDistributor::setup();
 	}
 }

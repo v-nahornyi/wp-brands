@@ -2,12 +2,16 @@
 
 namespace Clr\PostType;
 
+use Clr\Taxonomy\ClrAvailableSize;
+use Clr\Taxonomy\ClrIngredient;
+
 class ClrProduct extends ClrPostType {
 	public static function setup(): void {
 		self::register_products();
 		self::register_categories();
 		self::register_product_meta();
 		self::register_proline();
+		self::setup_taxonomies();
 	}
 
 	public static function register_products(): void {
@@ -476,5 +480,10 @@ class ClrProduct extends ClrPostType {
 		];
 
 		return $fields;
+	}
+
+	private static function setup_taxonomies() {
+		ClrIngredient::setup();
+		ClrAvailableSize::setup();
 	}
 }

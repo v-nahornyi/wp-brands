@@ -78,7 +78,6 @@ class ClrProDistributor extends ClrPostType {
 
 	protected static function pro_distributors_meta_config(): array {
 		$fields = [
-
 			[
 				'key'   => 'pro_distributors_link',
 				'label' => 'Link',
