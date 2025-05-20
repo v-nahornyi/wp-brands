@@ -84,6 +84,18 @@ class ClrRetailer extends ClrPostType {
 				'name'  => 'retailer_id',
 				'type'  => 'number',
 			],
+			[
+				'key'           => 'retailer_wtb_stock',
+				'label'         => 'Product Stock',
+				'name'          => 'retailer_wtb_stock',
+				'type'          => 'post_object',
+				'return_format' => 'object',
+				'post_type'     => [ 'product' ],
+				'taxonomy' => array(
+					'product_cat:wtb',
+				),
+				'multiple'      => true,
+			],
 		];
 
 		return $fields;

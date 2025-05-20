@@ -5,3 +5,7 @@
 .edit-post-meta-boxes-area #poststuff h2.hndle {
     padding: 1rem 2rem;
 }
+
+.editor-post-taxonomies__hierarchical-terms-list {
+    max-height: 500px;
+}

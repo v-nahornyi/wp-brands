@@ -80,6 +80,7 @@ class ClrProduct extends ClrPostType {
 		);
 
 		wp_insert_term( 'Proline', 'product_cat' );
+		wp_insert_term( 'WTB', 'product_cat' );
 	}
 
 	public static function register_product_meta(): void {
