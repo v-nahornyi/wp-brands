@@ -277,6 +277,22 @@ class ClrProduct extends ClrPostType {
 				'ajax'          => 1,        // Helpful for large datasets
 				'placeholder'   => 'Select Retailers',
 			],
+			[
+				'key'           => 'product_ingredients',
+				'label'         => 'Ingredients',
+				'name'          => 'product_ingredients',
+				'type'          => 'taxonomy',
+				'add_term'      => 0,
+				'save_terms'    => 0,
+				'load_terms'    => 0,
+				'taxonomy'      => 'ingredient',  // Target CPT
+				'field_type'    => 'multi_select',
+				'ui'            => 1,        // Enable enhanced UI
+				'return_format' => 'object', // Return post objects (or 'id')
+				'allow_null'    => 0,
+				'ajax'          => 1,        // Helpful for large datasets
+				'placeholder'   => 'Select Ingredients',
+			],
 			// Available Sizes (Checkbox)
 //			[
 //				'key'  => 'available_size',
@@ -483,7 +499,7 @@ class ClrProduct extends ClrPostType {
 		return $fields;
 	}
 
-	private static function setup_taxonomies() {
+	private static function setup_taxonomies(): void {
 		ClrIngredient::setup();
 		ClrAvailableSize::setup();
 	}

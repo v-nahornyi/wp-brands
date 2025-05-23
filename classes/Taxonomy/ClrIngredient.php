@@ -11,16 +11,19 @@ class ClrIngredient {
 	public static function register_ingredients(): void {
 		register_taxonomy( 'ingredient', 'product',
 			array(
-				'labels'            => array(
+				'labels'             => array(
 					'name'          => 'Ingredients',
 					'singular_name' => 'Ingredient',
 					'menu_name'     => 'Ingredients',
 				),
-				'hierarchical'      => true,
-				'show_admin_column' => true,
-				'show_in_nav_menus' => true,
-				'show_in_rest'      => true,
-				'rewrite'           => array( 'slug' => 'ingredient' ),
+				'hierarchical'       => false,
+				'show_ui'            => true,
+				'show_in_quick_edit' => false,
+				'meta_box_cb'        => false,
+				'show_admin_column'  => false,
+				'show_in_nav_menus'  => false,
+				'show_in_rest'       => false,
+				'rewrite'            => array( 'slug' => 'ingredient' ),
 			)
 		);
 	}
