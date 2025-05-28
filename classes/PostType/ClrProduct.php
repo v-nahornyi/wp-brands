@@ -119,7 +119,120 @@ class ClrProduct extends ClrPostType {
 				'key'   => 'product_image',
 				'label' => 'Image',
 				'name'  => 'product_image',
+				'type'  => 'gallery',
+			],
+			[
+				'key'   => 'bg_image',
+				'label' => 'Background Image',
+				'name'  => 'bg_image',
 				'type'  => 'image',
+			],
+			[
+				'key'           => 'videos',
+				'label'         => 'Videos',
+				'name'          => 'videos',
+				'type'          => 'repeater',
+				'layout'        => 'row',
+				'min'           => 0,
+				'max'           => 0,
+				'pagination'    => 0,
+				'collapsed'     => '',
+				'button_label'  => 'Add Row',
+				'rows_per_page' => 20,
+				'sub_fields'    => [
+					[
+						'key'               => 'video_file',
+						'name'              => 'video_file',
+						'type'              => 'file',
+						'return_format'     => 'array',
+						'library'           => 'all',
+						'allow_in_bindings' => 0,
+						'preview_size'      => 'medium',
+					],
+					[
+						'key'  => 'video_title',
+						'name' => 'video_title',
+						'type' => 'text',
+					],
+					[
+						'key'  => 'video_desc',
+						'name' => 'video_desc',
+						'type' => 'text',
+					]
+				]
+			],
+			[
+				'key'           => 'faq',
+				'label'         => 'FAQ',
+				'name'          => 'faq',
+				'type'          => 'repeater',
+				'layout'        => 'row',
+				'min'           => 0,
+				'max'           => 0,
+				'pagination'    => 0,
+				'collapsed'     => '',
+				'button_label'  => 'Add Row',
+				'rows_per_page' => 20,
+				'sub_fields'    => [
+					[
+						'key'  => 'faq_title',
+						'name' => 'faq_title',
+						'type' => 'text',
+					],
+					[
+						'key'  => 'faq_desc',
+						'name' => 'faq_desc',
+						'type' => 'textarea',
+					]
+				]
+			],
+			[
+				'key'               => 'badge_type',
+				'label'             => 'Badge Type',
+				'name'              => 'badge_type',
+				'type'              => 'radio',
+				'choices'           => [
+					'image' => 'Image',
+					'text'  => 'Text',
+				],
+				'default_value'     => '',
+				'return_format'     => 'value',
+				'other_choice'      => 0,
+				'allow_in_bindings' => 0,
+				'layout'            => 'vertical',
+				'save_other_choice' => 0,
+			],
+			[
+				'key'               => 'badge_text',
+				'label'             => 'Badge Text',
+				'name'              => 'badge_text',
+				'type'              => 'text',
+				'conditional_logic' => [
+					[
+						[
+							'field'    => 'badge_type',
+							'operator' => '==',
+							'value'    => 'text',
+						],
+					],
+				],
+				'allow_in_bindings' => 0,
+			],
+			[
+				'key'               => 'badge_image',
+				'label'             => 'Badge Image',
+				'name'              => 'badge_image',
+				'type'              => 'image',
+				'conditional_logic' => [
+					[
+						[
+							'field'    => 'badge_type',
+							'operator' => '==',
+							'value'    => 'image',
+						],
+					],
+				],
+				'allow_in_bindings' => 0,
 			],
 			// Safety Ingredients (Text Area)
 			[
