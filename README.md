@@ -1,1 +1,1 @@
-# Project bootstraping WordPress plugin
+# WordPress plugin for bootstrapping a project
